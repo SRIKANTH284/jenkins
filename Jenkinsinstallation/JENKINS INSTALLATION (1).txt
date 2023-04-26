@@ -1,0 +1,133 @@
+INSTALLATION OF JENKINS:
+
+$curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+  echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+  sudo apt-get update
+  sudo apt-get install jenkins
+
+
+INSTALLATION OF JAVA:
+
+$ sudo apt update
+$ sudo apt install openjdk-11-jre
+$ java -version
+
+Start Jenkins
+You can enable the Jenkins service to start at boot with the command:
+
+sudo systemctl enable jenkins
+
+You can start the Jenkins service with the command:
+
+sudo systemctl start jenkins
+
+You can check the status of the Jenkins service using the command:
+
+sudo systemctl status jenkins
+
+
+
+
+
+docker
+
+#!/bin/bash
+sudo apt update -y
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" -y
+sudo apt update -y
+apt-cache policy docker-ce -y
+sudo apt install docker-ce -y
+#sudo systemctl status docker
+sudo chmod 777 /var/run/docker.sock
+
+
+
+
+
+maven
+wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+tar -zxvf apache-maven-3.6.3-bin.tar.gz
+sudo mv apache-maven-3.6.3/0pt/
+
+
+$ wget https://mirrors.estointernet.in/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+$ tar -xvf apache-maven-3.6.3-bin.tar.gz
+$ sudo mv apache-maven-3.6.3 /opt/
+
+
+
+nano ~/.bash_profile
+
+M2_HOME='/opt/apache-maven-3.6.3'
+PATH="$M2_HOME/bin:$PATH"
+export PATH
+
+sudo apt install maven
+ mvn -version
+
+
+
+
+
+#!/bin/bash
+sudo apt update -y
+sudo apt install default-jre -y
+java -version
+sudo apt update -y
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update -y
+sudo add-apt-repository universe -y
+sudo apt-get install jenkins -y
+sudo service jenkins start
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+
+
+
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 9B7D32F2D50582E6
+
+
+Remote root directory : /home/ubuntu/jenkins
+
+
+
+
+
+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(git hub api password token)
+
+
+sudo docker build /home/ubuntu/website/. -t test
+sudo docker run -it -p 82:80 -d test
+
+sudo docker build /home/ubuntu/website/. -t test 
+sudo docker run -it -p 82:80 -d test
+
+sudo docker rm -f $(sudo docker ps -a -q)
+html page
+
+<html>
+<head>
+<title> Srikanth Devops </title>
+</head>
+<body style = "background-image:url('images/github3.jpg'); background-size: 100%">
+<h2 ALIGN=CENTER>Hello world!</h2>
+</body>
+</html>
+
+
+Docker file
+FROM hshar/webapp
+ADD. /var/www/html
+
+FROM hshar/webapp
+ADD . /var/www/html
